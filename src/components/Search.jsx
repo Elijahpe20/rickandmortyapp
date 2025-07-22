@@ -23,6 +23,12 @@ function Search({ onSearch }) {
 		inputRef.current.value = '';
 	};
 
+	const handleKeyDown = (event) => {
+		if (event.key === 'Enter') {
+			handleSubmit();
+		}
+	};
+
 	return (
 		<>
 			<div className="form__container">
@@ -31,6 +37,7 @@ function Search({ onSearch }) {
 					placeholder="type a location id"
 					ref={inputRef}
 					className="form__input"
+					onKeyDown={handleKeyDown}
 				/>
 				<button onClick={handleSubmit} className="form__button">
 					Search
